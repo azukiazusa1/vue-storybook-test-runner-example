@@ -1,0 +1,39 @@
+{
+  "name": "my-vue-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "test-storybook": "test-storybook",
+    "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && npm run test-storybook\""
+  },
+  "dependencies": {
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/jest": "^0.0.9",
+    "@storybook/test-runner": "^0.0.4",
+    "@storybook/testing-library": "^0.0.9",
+    "@storybook/vue3": "^6.4.19",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "babel-loader": "^8.2.3",
+    "concurrently": "^7.0.0",
+    "http-server": "^14.1.0",
+    "jest": "^27.5.1",
+    "jest-image-snapshot": "^4.5.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vue-loader": "^16.8.3",
+    "vue-tsc": "^0.29.8",
+    "wait-on": "^6.0.1"
+  }
+}
